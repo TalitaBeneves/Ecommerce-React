@@ -23,6 +23,7 @@ const Desc = styled.p`
 
 const SocialContainer = styled.div`
   display: flex;
+  cursor: pointer;
 `;
 
 const SocialIcon = styled.div`
