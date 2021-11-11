@@ -1,26 +1,22 @@
-import modelo1 from "../src/img/modelo1.png";
-import modelo2 from "../src/img/modelo2.png";
-import modelo3 from "../src/img/modelos3.png";
-
-
+import modelo from "../src/img/modelo.png"
 export const sliderItems = [
   {
     id: 1,
-    img: modelo1,
-    title: "SUMMER SALE",
+    img: "https://images.tcdn.com.br/img/img_prod/645755/camiseta_feminina_under_armour_manga_longa_moda_fitness_1059_3_5d26d7524ce907fe55a8aea2236a2bd4.png",
+    title: "FITNESS SALE",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
     bg: "f5fafd",
   },
   {
     id: 2,
-    img: modelo2,
+    img: "https://i.ibb.co/DG69bQ4/2.png",
     title: "AUTUMN COLLECTION",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
     bg: "fcf1ed",
   },
   {
     id: 3,
-    img: modelo3,
+    img: "https://i.ibb.co/cXFnLLV/3.png",
     title: "LOUNGEWEAR LOVE",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
     bg: "fbf0f4",
@@ -72,7 +68,7 @@ export const popularProducts = [
   },
   {
     id:7,
-    img:"https://www.vintageindustries.nl/download_front/qympzk1762/2217_Arrow_Jacket_Forest.png",
+    img:"https://images.tcdn.com.br/img/img_prod/741261/casaco_655_1_132ad13d745f0c087550d653064a93e6.png",
   },
   {
     id:8,
