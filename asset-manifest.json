@@ -1,19 +1,18 @@
 {
   "files": {
-    "main.js": "/Ecommerce-React/static/js/main.193dd53b.chunk.js",
-    "main.js.map": "/Ecommerce-React/static/js/main.193dd53b.chunk.js.map",
+    "main.js": "/Ecommerce-React/static/js/main.d6296965.chunk.js",
+    "main.js.map": "/Ecommerce-React/static/js/main.d6296965.chunk.js.map",
     "runtime-main.js": "/Ecommerce-React/static/js/runtime-main.d9b1f3f6.js",
     "runtime-main.js.map": "/Ecommerce-React/static/js/runtime-main.d9b1f3f6.js.map",
-    "static/js/2.902c207e.chunk.js": "/Ecommerce-React/static/js/2.902c207e.chunk.js",
-    "static/js/2.902c207e.chunk.js.map": "/Ecommerce-React/static/js/2.902c207e.chunk.js.map",
+    "static/js/2.a56e1c41.chunk.js": "/Ecommerce-React/static/js/2.a56e1c41.chunk.js",
+    "static/js/2.a56e1c41.chunk.js.map": "/Ecommerce-React/static/js/2.a56e1c41.chunk.js.map",
     "index.html": "/Ecommerce-React/index.html",
-    "static/js/2.902c207e.chunk.js.LICENSE.txt": "/Ecommerce-React/static/js/2.902c207e.chunk.js.LICENSE.txt",
-    "static/media/modelo1.4cc90c35.png": "/Ecommerce-React/static/media/modelo1.4cc90c35.png",
-    "static/media/modelos3.3a609ebf.png": "/Ecommerce-React/static/media/modelos3.3a609ebf.png"
+    "static/js/2.a56e1c41.chunk.js.LICENSE.txt": "/Ecommerce-React/static/js/2.a56e1c41.chunk.js.LICENSE.txt",
+    "static/media/modelo.cc89ff66.png": "/Ecommerce-React/static/media/modelo.cc89ff66.png"
   },
   "entrypoints": [
     "static/js/runtime-main.d9b1f3f6.js",
-    "static/js/2.902c207e.chunk.js",
-    "static/js/main.193dd53b.chunk.js"
+    "static/js/2.a56e1c41.chunk.js",
+    "static/js/main.d6296965.chunk.js"
   ]
 }
