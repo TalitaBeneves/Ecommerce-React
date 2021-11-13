@@ -3,6 +3,37 @@ import styled from 'styled-components';
 import { Search, ShoppingCartOutlined } from '@material-ui/icons';
 import  { Badge }  from '@material-ui/core';
 import  { mobile }  from '../responsive';
+import { useSelector } from "react-redux"
+
+const Navbar = () => {
+  const quantity = useSelector(state => state.cart.quantity);
+
+  return (
+    <Container>
+      <Wrapper>
+        <Left>
+          <Language>EN</Language>
+          <SearchContainer>
+            <Input placeholder="Search" />
+            <Search style={{color: "gray", fontSize: 16}}/>
+          </SearchContainer>
+        </Left>
+        <Center>
+          <Logo>Talita</Logo>
+        </Center>
+        <Right>
+          <MenuItem>Register</MenuItem>
+          <MenuItem>Sign In</MenuItem>
+          <MenuItem>
+            <Badge badgeContent={quantity} color="primary">
+              <ShoppingCartOutlined />
+            </Badge>
+          </MenuItem>
+        </Right>
+      </Wrapper> 
+    </Container>
+  )
+}
 
 const Container = styled.div`
   height: 60px;
@@ -66,33 +97,5 @@ const MenuItem = styled.div`
   margin-left: 25px;
   ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
-
-const Navbar = () => {
-  return (
-    <Container>
-      <Wrapper>
-        <Left>
-          <Language>EN</Language>
-          <SearchContainer>
-            <Input placeholder="Search" />
-            <Search style={{color: "gray", fontSize: 16}}/>
-          </SearchContainer>
-        </Left>
-        <Center>
-          <Logo>Talita</Logo>
-        </Center>
-        <Right>
-          <MenuItem>Register</MenuItem>
-          <MenuItem>Sign In</MenuItem>
-          <MenuItem>
-            <Badge badgeContent={4} color="primary">
-              <ShoppingCartOutlined />
-            </Badge>
-          </MenuItem>
-        </Right>
-      </Wrapper> 
-    </Container>
-  )
-}
 
 export default Navbar
