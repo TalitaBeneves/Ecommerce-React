@@ -1,13 +1,13 @@
-import styled from 'styled-components';
-import Navbar  from '../components/Navbar';
-import Announcement  from '../components/Announcement';
-import Footer  from '../components/Footer';
-import StripeCheckout from "react-stripe-checkout";
-import { Add, Remove }  from '@material-ui/icons';
+import { Add, Remove } from "@material-ui/icons";
+import { useSelector } from "react-redux";
+import styled from "styled-components";
+import Announcement from "../components/Announcement";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 import { mobile } from "../responsive";
-import { useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { userRequest } from '../requestMethods';
+import StripeCheckout from "react-stripe-checkout";
+import { useEffect, useState } from "react";
+import { userRequest } from "../requestMethods";
 import { useHistory } from "react-router-dom";
 
 
@@ -27,30 +27,31 @@ const Cart = () => {
       try {
         const res = await userRequest.post("/checkout/payment", {
           tokenId: stripeToken.id,
-          amount: cart.total * 100,
+          amount: 500,
         });
-        history.push("/success", { data: res.data });
+        history.push("/success", {
+          stripeData: res.data,
+          products: cart, });
       } catch {}
     };
     stripeToken && makeRequest();
   }, [stripeToken, cart.total, history]);
-
   return (
     <Container>
       <Navbar />
       <Announcement />
-        <Wrapper>
-          <Title>YOUR BAG</Title>
-          <Top>
-            <TopButton>CONTINUE SHOPPING</TopButton>
-            <TopTexts>
-              <TopText>Shopping Bag(2)</TopText>
-              <TopText>Your Wishlist (0)</TopText>
-            </TopTexts>
-            <TopButton type="filled">CHECKOUT NOW</TopButton>
-          </Top>
-          <Bottom>
-            <Info>
+      <Wrapper>
+        <Title>YOUR BAG</Title>
+        <Top>
+          <TopButton>CONTINUE SHOPPING</TopButton>
+          <TopTexts>
+            <TopText>Shopping Bag(2)</TopText>
+            <TopText>Your Wishlist (0)</TopText>
+          </TopTexts>
+          <TopButton type="filled">CHECKOUT NOW</TopButton>
+        </Top>
+        <Bottom>
+          <Info>
             {cart.products.map((product) => (
               <Product>
                 <ProductDetail>
@@ -80,9 +81,9 @@ const Cart = () => {
                 </PriceDetail>
               </Product>
             ))}
-              <Hr /> 
-            </Info>
-            <Summary>
+            <Hr />
+          </Info>
+          <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
             <SummaryItem>
               <SummaryItemText>Subtotal</SummaryItemText>
@@ -100,7 +101,7 @@ const Cart = () => {
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
             </SummaryItem>
-            <StripeCheckout 
+            <StripeCheckout
               name="Talita Shop"
               image="https://avatars.githubusercontent.com/u/83943087?v=4"
               billingAddress
@@ -113,13 +114,12 @@ const Cart = () => {
               <Button>CHECKOUT NOW</Button>
             </StripeCheckout>
           </Summary>
-          </Bottom>
-        </Wrapper>
+        </Bottom>
+      </Wrapper>
       <Footer />
     </Container>
   );
 };
-
 
 const Container = styled.div``;
 
