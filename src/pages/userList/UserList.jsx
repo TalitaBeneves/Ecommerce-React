@@ -4,6 +4,7 @@ import { DeleteOutline } from "@material-ui/icons";
 import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { withTheme } from "@material-ui/core";
 
 export default function UserList() {
   const [data, setData] = useState(userRows);
