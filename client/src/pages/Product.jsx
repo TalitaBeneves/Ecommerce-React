@@ -1,15 +1,15 @@
+import { Add, Remove } from "@material-ui/icons";
+import styled from "styled-components";
 import Announcement from "../components/Announcement";
-import styled from "styled-components"; 
-import Navbar from "../components/Navbar"; 
-import Newsletter from "../components/Newsletter"; 
-import Footer from "../components/Footer"; 
-import { Remove, Add } from "@material-ui/icons"; 
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import Newsletter from "../components/Newsletter";
 import { mobile } from "../responsive";
-import { useLocation } from "react-router";
+import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { publicRequest } from "../requestMethods";
 import { addProduct } from "../redux/cartRedux";
-import { useDispatch, userDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Product = () => {
   const location = useLocation();
@@ -22,31 +22,31 @@ const Product = () => {
 
   useEffect(() => {
     const getProduct = async () => {
-      try{
+      try {
         const res = await publicRequest.get("/products/find/" + id);
         setProduct(res.data);
-      }catch (err){}
+      } catch {}
     };
     getProduct();
   }, [id]);
 
   const handleQuantity = (type) => {
-    if(type === "dec"){
-      quantity > 1 && setQuantity(quantity -1);
-    }else{
-      setQuantity(quantity +1);
+    if (type === "dec") {
+      quantity > 1 && setQuantity(quantity - 1);
+    } else {
+      setQuantity(quantity + 1);
     }
-  }
-
-  const handleClick = () => {
-    dispatch(addProduct({ ...product, quantity, color, size })
-    );
   };
 
+  const handleClick = () => {
+    dispatch(
+      addProduct({ ...product, quantity, color, size })
+    );
+  };
   return (
     <Container>
       <Navbar />
-      <Announcement/>
+      <Announcement />
       <Wrapper>
         <ImgContainer>
           <Image src={product.img} />
@@ -54,32 +54,28 @@ const Product = () => {
         <InfoContainer>
           <Title>{product.title}</Title>
           <Desc>{product.desc}</Desc>
-          <Price>{product.price}</Price>
+          <Price>$ {product.price}</Price>
           <FilterContainer>
             <Filter>
               <FilterTitle>Color</FilterTitle>
-                {product.color?.map((c) => (
-                  <FilterColor 
-                    color={c} 
-                    key={c} 
-                    onClick={() => setColor(c)}
-                  />
-                ))}
+              <FilterColor color="pink" />
             </Filter>
             <Filter>
               <FilterTitle>Size</FilterTitle>
-              <FilterSize onChange={(e) => setSize(e.target.value)}>
-                {product.size?.map((s) => (
-                  <FilterSizeOption key={s}>{s}</FilterSizeOption>
-                ))}
+              <FilterSize>
+                <FilterSizeOption>XS</FilterSizeOption>
+                <FilterSizeOption>S</FilterSizeOption>
+                <FilterSizeOption>M</FilterSizeOption>
+                <FilterSizeOption>L</FilterSizeOption>
+                <FilterSizeOption>XL</FilterSizeOption>
               </FilterSize>
             </Filter>
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-              <Remove onClick={() => handleQuantity("dec")}/>
+              <Remove onClick={() => handleQuantity("dec")} />
               <Amount>{quantity}</Amount>
-              <Add onClick={() => handleQuantity("inc")}/>
+              <Add onClick={() => handleQuantity("inc")} />
             </AmountContainer>
             <Button onClick={handleClick}>ADD TO CART</Button>
           </AddContainer>
@@ -88,8 +84,9 @@ const Product = () => {
       <Newsletter />
       <Footer />
     </Container>
-  )
-}
+  );
+};
+
 
 const Container = styled.div``;
 
@@ -158,7 +155,7 @@ const FilterColor = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: ${(props) => props.color};
+  background-color: ${(products) => products.color};
   margin: 0px 5px;
   cursor: pointer;
 `;
