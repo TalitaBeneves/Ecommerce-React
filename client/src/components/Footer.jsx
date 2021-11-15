@@ -132,7 +132,7 @@ const Footer = () => {
         <Payment src={pay}/>
       </Right>
     </Container>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

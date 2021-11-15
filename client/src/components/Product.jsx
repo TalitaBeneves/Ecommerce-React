@@ -28,7 +28,6 @@ const Product = ({ item }) => {
   );
 };
 
-
 const Info = styled.div`
   opacity: 0;
   width: 100%;

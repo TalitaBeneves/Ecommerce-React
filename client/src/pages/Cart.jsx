@@ -1,3 +1,4 @@
+
 import { Add, Remove } from "@material-ui/icons";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
@@ -9,7 +10,7 @@ import StripeCheckout from "react-stripe-checkout";
 import { useEffect, useState } from "react";
 import { userRequest } from "../requestMethods";
 import { useHistory } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 const KEY = process.env.REACT_APP_STRIPE;
 
@@ -43,14 +44,13 @@ const Cart = () => {
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
-          <TopTexts>
-            <TopText>Shopping Bag(2)</TopText>
-            <TopText>Your Wishlist (0)</TopText>
-          </TopTexts>
-          <TopButton type="filled">CHECKOUT NOW</TopButton>
+          <TopButton>
+          <Link to="/"> CONTINUE SHOPPING
+          </Link>
+          </TopButton>
         </Top>
         <Bottom>
+          <Hr />
           <Info>
             {cart.products.map((product) => (
               <Product>
@@ -81,7 +81,7 @@ const Cart = () => {
                 </PriceDetail>
               </Product>
             ))}
-            <Hr />
+           <Hr />
           </Info>
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>
@@ -233,7 +233,7 @@ const ProductPrice = styled.div`
 `;
 
 const Hr = styled.hr`
-  background-color: #cac8c8;
+  background-color: #000000;
   border: none;
   height: 1px;
 `;
