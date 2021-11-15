@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./newProduct.css";
-import { useDispatch } from "react-redux";
 import {
   getStorage,
   ref,
@@ -9,6 +8,7 @@ import {
 } from "firebase/storage";
 import app from "../../firebase";
 import { addProduct } from "../../redux/apiCalls";
+import { useDispatch } from "react-redux";
 
 export default function NewProduct() {
   const [inputs, setInputs] = useState({});
